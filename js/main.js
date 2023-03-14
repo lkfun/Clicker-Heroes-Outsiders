@@ -34,7 +34,7 @@ var settingsVisible = false;
 
 function showSettingsClick() {
     $("#settings").toggle(100, function(){
-        $("#showSettings").html( (settingsVisible = !settingsVisible) ? "Hide Settings" : "Show Settings");
+        $("#showSettings").html( (settingsVisible = !settingsVisible) ? "隐藏设置" : "打开设置");
     });
 }
 
@@ -150,7 +150,7 @@ function getInputs() {
     $("#ancient_souls").val($("#ancient_souls").val().replace(/,/g, ''));
     var ancientSouls = parseFloat( $("#ancient_souls").val() || 0 );
     if( !(ancientSouls>=0) ) {
-        alert("Calculation failed. Ancient Souls must be a non-negative number.");
+        alert("计算失败。 远古之魂必须是一个非负数。");
         return -1;
     }
     $("#ancient_souls").val(Math.floor(ancientSouls));
@@ -159,7 +159,7 @@ function getInputs() {
     if( isNaN(zoneOverride) || zoneOverride<0 ) {
         setDefaults();
         zoneOverride = 0;
-        alert("Advanced settings were set to default values.");
+        alert("高级设置被设置为默认值。");
     }
 
     return [Math.floor(ancientSouls), zoneOverride];
@@ -354,37 +354,37 @@ function refresh(test, ancientSouls, simulating) {
     if (simulating) return [ancientSouls, borbLevel, this.newHze, buffedMPZ, this.newAncientSouls];
 
     // Display the results
-    $("#TP").html("TP: " + tpDisplay(ancientSouls));
+    $("#TP").html("超越之力: " + tpDisplay(ancientSouls));
     //End of Transcension
-    $("#predictedHZE").html("Highest Zone: " + this.newHze.toLocaleString() );
+    $("#predictedHZE").html("最高关卡: " + this.newHze.toLocaleString() );
     $("#predictedHS").html("logHS: " + newLogHeroSouls.toFixed(2).toLocaleString() );
-    $("#predictedAS").html("AncientSouls: " + this.newAncientSouls.toLocaleString() + " (+" + this.ancientSoulsDiff.toLocaleString() + ")");
-    $("#predictedTP").html("TP: " + tpDisplay(this.newAncientSouls));
+    $("#predictedAS").html("远古之魂: " + this.newAncientSouls.toLocaleString() + " (+" + this.ancientSoulsDiff.toLocaleString() + ")");
+    $("#predictedTP").html("超越之力: " + tpDisplay(this.newAncientSouls));
     $("#predictedAncients").html("Ancient Levels: " + ancientLevels.toLocaleString() );
-    $("#kuma").html( kuma.toFixed(2) + " monsters per zone" );
-    $("#atman").html( atman.toFixed(2) + "% chance of primal" );
-    $("#bubos").html( bubos.toFixed(2) + " boss life" );
-    $("#chronos").html( chronos.toFixed(2) + "s boss fight timer" );
-    $("#dora").html( dora.toFixed(2) + "% treasure chests" );
+    $("#kuma").html( kuma.toFixed(2) + " 怪/层" );
+    $("#atman").html( atman.toFixed(2) + "% 初始机会" );
+    $("#bubos").html( bubos.toFixed(2) + " boss生命" );
+    $("#chronos").html( chronos.toFixed(2) + "s boss战斗时长" );
+    $("#dora").html( dora.toFixed(2) + "% 宝箱" );
 
     const showStatsAtHZE = $("#statsHZE").is(":checked");
     if (showStatsAtHZE) {
         //Unbuffed Stats
-        $("#unbuffedMPZ").html( "Monsters per Zone: " + unbuffedMonstersPerZone.toFixed(2) );
-        $("#unbuffedTCC").html( "Treasure Chests: " + unbuffedTreasureChestChance.toFixed(6) + "x" );
-        $("#unbuffedBossHP").html( "Boss Health: " + unbuffedBossHealth.toFixed(1) + "x" );
-        $("#unbuffedTimer").html( "Boss Timer: " + unbuffedBossTimer + "s" );
-        $("#unbuffedPBC").html( "Primal Chance: " + unbuffedPrimalBossChance + "%" );
+        $("#unbuffedMPZ").html( " 怪/层" + unbuffedMonstersPerZone.toFixed(2) );
+        $("#unbuffedTCC").html( "宝箱: " + unbuffedTreasureChestChance.toFixed(6) + "x" );
+        $("#unbuffedBossHP").html( "boss生命: " + unbuffedBossHealth.toFixed(1) + "x" );
+        $("#unbuffedTimer").html( "Boss战斗时长: " + unbuffedBossTimer + "s" );
+        $("#unbuffedPBC").html( "初始机会: " + unbuffedPrimalBossChance + "%" );
         //Buffed Stats
         var buffedTCC = Math.max( 1, ( dora*( 1 + senakhanLevel)/100 + 1 )*unbuffedTreasureChestChance );
             buffedBossHP = Math.floor( Math.max( 5, unbuffedBossHealth + bubos*( 1 + kariquaLevel*0.5 ) ) );
             buffedTimer = Math.max( 2, unbuffedBossTimer + chronos*( 1 + orphalasLevel*0.75 ) );
             buffedPBC = Math.max( 5, unbuffedPrimalBossChance + atman*( 1 + rhageistLevel*0.25 ) );
-        $("#buffedMPZ").html( "Monsters per Zone: " + buffedMPZ.toFixed(2) + (buffedMPZ<2?" (2)":"") );
-        $("#buffedTCC").html( "Treasure Chests: " + buffedTCC.toFixed() + "%" );
-        $("#buffedBossHP").html( "Boss Health: " + buffedBossHP.toFixed() + "x" );
-        $("#buffedTimer").html( "Boss Timer: " + buffedTimer.toFixed() + "s" );
-        $("#buffedPBC").html( "Primal Chance: " + buffedPBC.toFixed() + "%" );
+        $("#buffedMPZ").html( " 怪/层" + buffedMPZ.toFixed(2) + (buffedMPZ<2?" (2)":"") );
+        $("#buffedTCC").html( "宝箱: " + buffedTCC.toFixed() + "%" );
+        $("#buffedBossHP").html( "boss生命: " + buffedBossHP.toFixed() + "x" );
+        $("#buffedTimer").html( "Boss战斗时长: " + buffedTimer.toFixed() + "s" );
+        $("#buffedPBC").html( "初始机会: " + buffedPBC.toFixed() + "%" );
         $("#unbuffedHZE").show();
         $("#buffedHZE").show();
     } else {
@@ -392,21 +392,21 @@ function refresh(test, ancientSouls, simulating) {
         $("#buffedHZE").hide();
     }
     //Zone Breakpoints
-    $("#HighMpz").html( "2.1 monsters per zone: " + ( -39500 - Math.floor( kuma*( 1 + borbLevel/8 )*10 )*500 ).toLocaleString() );
-    $("#5PBC").html( "5% primal chance: " + ( 5500 + Math.floor( atman*( 1 + rhageistLevel/4 )/2)*500 ).toLocaleString() );
-    $("#90BHP").html( "90% boss health: " + ( Math.ceil( ( bubos*( 1 + kariquaLevel/2 )*-10 - 10 )/0.4 )*500 ).toLocaleString() );
-    $("#2sTimer").html( "2s boss timer: " + ( 7000 + Math.floor( chronos*( 1 + orphalasLevel*0.75 )/2 )*500 ).toLocaleString() );
-    $("#99TTC").html( "99% treasure chests: " + (Math.ceil( Math.log( 0.995/( dora/10000*( 1 + senakhanLevel ) + 0.01 ) )/-0.006 )*500 ).toLocaleString() );
-    $("#1TTC").html( "1% treasure chests: " + (Math.ceil( Math.log( 0.015/( dora/10000*( 1 + senakhanLevel ) + 0.01 ) )/-0.006 )*500 ).toLocaleString() );
+    $("#HighMpz").html( "2.1 怪每秒: " + ( -39500 - Math.floor( kuma*( 1 + borbLevel/8 )*10 )*500 ).toLocaleString() );
+    $("#5PBC").html( "5% 初始机会: " + ( 5500 + Math.floor( atman*( 1 + rhageistLevel/4 )/2)*500 ).toLocaleString() );
+    $("#90BHP").html( "90% boss生命: " + ( Math.ceil( ( bubos*( 1 + kariquaLevel/2 )*-10 - 10 )/0.4 )*500 ).toLocaleString() );
+    $("#2sTimer").html( "2s boss战斗时长: " + ( 7000 + Math.floor( chronos*( 1 + orphalasLevel*0.75 )/2 )*500 ).toLocaleString() );
+    $("#99TTC").html( "99% 宝箱 " + (Math.ceil( Math.log( 0.995/( dora/10000*( 1 + senakhanLevel ) + 0.01 ) )/-0.006 )*500 ).toLocaleString() );
+    $("#1TTC").html( "1% 宝箱: " + (Math.ceil( Math.log( 0.015/( dora/10000*( 1 + senakhanLevel ) + 0.01 ) )/-0.006 )*500 ).toLocaleString() );
     $("#estimates").show();
 
     //Outsiders Table
     $("#OutsidersTable tbody").html(
-        "<tr><td>Xyliqil</td><td>"+xyliqilLevel.toLocaleString()+"</td><td>"+getCostFromLevel(xyliqilLevel).toLocaleString()+"</td><tr>"+
-        "<tr><td>Chor'gorloth</td><td>"+chorLevel.toLocaleString()+"</td><td>"+getCostFromLevel(chorLevel).toLocaleString()+"</td><tr>"+
-        "<tr><td>Phandoryss</td><td>"+phanLevel.toLocaleString()+"</td><td>"+phanLevel.toLocaleString()+"</td><tr>"+
-        "<tr><td>Ponyboy</td><td>"+ponyLevel.toLocaleString()+"</td><td>"+getCostFromLevel(ponyLevel).toLocaleString()+"</td><tr>"+
-        "<tr><td>Borb</td><td>"+borbLevel.toLocaleString()+"</td><td>"+getCostFromLevel(borbLevel).toLocaleString()+"</td><tr>"+
+        "<tr><td>犀利契</td><td>"+xyliqilLevel.toLocaleString()+"</td><td>"+getCostFromLevel(xyliqilLevel).toLocaleString()+"</td><tr>"+
+        "<tr><td>楚格洛斯</td><td>"+chorLevel.toLocaleString()+"</td><td>"+getCostFromLevel(chorLevel).toLocaleString()+"</td><tr>"+
+        "<tr><td>樊德瑞斯</td><td>"+phanLevel.toLocaleString()+"</td><td>"+phanLevel.toLocaleString()+"</td><tr>"+
+        "<tr><td>马夫</td><td>"+ponyLevel.toLocaleString()+"</td><td>"+getCostFromLevel(ponyLevel).toLocaleString()+"</td><tr>"+
+        "<tr><td>波尔</td><td>"+borbLevel.toLocaleString()+"</td><td>"+getCostFromLevel(borbLevel).toLocaleString()+"</td><tr>"+
         "<tr><td>Rhageist</td><td>"+rhageistLevel.toLocaleString()+"</td><td>"+getCostFromLevel(rhageistLevel).toLocaleString()+"</td><tr>"+
         "<tr><td>K'Ariqua</td><td>"+kariquaLevel.toLocaleString()+"</td><td>"+getCostFromLevel(kariquaLevel).toLocaleString()+"</td><tr>"+
         "<tr><td>Orphalas</td><td>"+orphalasLevel.toLocaleString()+"</td><td>"+getCostFromLevel(orphalasLevel).toLocaleString()+"</td><tr>"+
@@ -423,7 +423,7 @@ function refresh(test, ancientSouls, simulating) {
         orphalasLevel+'/'+
         senakhanLevel
     );
-    $("#unspentAS").html( "Unspent: " + unspent );
+    $("#unspentAS").html( "未使用: " + unspent );
     $("#results").show();
     
     if (!$("#helpText").is(":checked")) {
@@ -431,10 +431,10 @@ function refresh(test, ancientSouls, simulating) {
     } else {
         let infoMessage = "";
         if (ancientSouls === 0) {
-            infoMessage += "<li>You need to have ancient souls for this to work. Transcend as soon as you unlock transcendence at zone 300. It's worth it.</li>";
+            infoMessage += "<li>你需要有远古之魂才能发挥作用。 在 300 层解锁超越后立即超越。这是值得的。</li>";
         } else {
             if(ancientSouls < 2000) {
-                infoMessage += "<li>Your first ascension should be at zone 130, so that you can unlock Kuma and a few other ancients as soon as possible. This will speed up your ascensions a lot.</li>"
+                infoMessage += "<li>你的第一次转生应该在 130 层，这样你就可以尽快解锁 熊若丸 和其他一些神器。 这会大大加快你的升级。</li>"
                 if (borbHze < borbLevel && ancientSouls > 50) {
                     infoMessage += "<li>Only " + borbHze + " Borb is needed to have 2 monsters per zone on your final ascension, but " + borbFantR
                     + " is needed to have 2 monsters per zone after ascending for the first time at zone 130.</li>";

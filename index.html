@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=0">
     <meta name="theme-color" content="#5060b0">
     <meta name="Description" content="Get Outsider Suggestions for Clicker Heroes version e10 or e11.">
-	<title>CH Outsider Calculator</title>
+	<title>点击英雄超越计算器</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/main-v005.css">
     <link rel="stylesheet" href="css/light-theme-v004.css" id="theme-light" title="Light" disabled>
@@ -31,7 +31,7 @@
         }
     </script>
 	<link rel="icon" type="image/png" href="Ruby.png">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
 </head>
 	<body>
 		<main class="container" role="main">
@@ -53,34 +53,34 @@
                 </div>
 				<div class="box-4">
 					<div class="panel">
-						<div class="title">Inputs</div>
+						<div class="title">输入</div>
 						<div class="content">
 							<div class="numberInput">
-								<label for="ancient_souls">Ancient Souls:</label>
+								<label for="ancient_souls">远古之魂:</label>
 								<input value="0" id="ancient_souls" type="text">
 							</div>
-							<div id="TP">TP: 2.0000%</div>
-							<br><button id="calculateButton" onclick="clearOutput();refresh()">Calculate</button>
+							<div id="TP">超越之力: 2.0000%</div>
+							<br><button id="calculateButton" onclick="clearOutput();refresh()">计算</button>
                             <br><br>
-                            <label for="savegame">Input Save</label>
-							<textarea id="savegame" placeholder="Paste your save game here" autofocus onclick="this.focus();this.select()" onblur="readSave()"></textarea>
+                            <label for="savegame">输入存档</label>
+							<textarea id="savegame" placeholder="在这里粘贴你的存档" autofocus onclick="this.focus();this.select()" onblur="readSave()"></textarea>
                             <div id="autoLevelDiv" style="display:none;">
-                                <label for="outputsave">Output Save</label>
-                                <textarea id="outputsave" placeholder="Import this save into your game" onclick="this.select()"></textarea>
+                                <label for="outputsave">导出存档</label>
+                                <textarea id="outputsave" placeholder="将存档导入你的游戏" onclick="this.select()"></textarea>
                             </div>
-							<button id="readSaveButton" onclick="readSave()">Read Save</button>
+							<button id="readSaveButton" onclick="readSave()">读取存档</button>
 							<hr>
-							<button id="showSettings" onclick="showSettingsClick()">Show Settings</button>
+							<button id="showSettings" onclick="showSettingsClick()">打开设置</button>
 							<div id="settings">
 								<div class="numberInput">
                                     <input type="checkbox" id="autolevel" class="checkbox" onclick="toggleSetting('autolevel')"><label for="autolevel">Autolevel</label>
-                                    <br><input type="checkbox" id="dark" class="checkbox" onclick="changeTheme()" checked><label for="dark">Dark Theme</label>
-                                    <br><input type="checkbox" id="simulator" class="checkbox" onclick="toggleSetting('simulator')" checked><label for="simulator">Transcension Simulator</label>
+                                    <br><input type="checkbox" id="dark" class="checkbox" onclick="changeTheme()" checked><label for="dark">暗色主题</label>
+                                    <br><input type="checkbox" id="simulator" class="checkbox" onclick="toggleSetting('simulator')" checked><label for="simulator">超越模拟器</label>
 									<br><label for="zoneOverride">Zone override:</label>
 									<input id="zoneOverride" type="text" style="font-size:12px;">
-                                    <br><input type="checkbox" id="helpText" class="checkbox" onclick="toggleSetting('helpText')" checked><label for="helpText">Help Text</label>
+                                    <br><input type="checkbox" id="helpText" class="checkbox" onclick="toggleSetting('helpText')" checked><label for="helpText">帮助文本</label>
                                     <br><input type="checkbox" id="levelOrphalas" class="checkbox" onclick="toggleSetting('levelOrphalas')"><label for="levelOrphalas">Level Orphalas</label>
-                                    </br><input type="checkbox" id="reserveAS" class="checkbox" onclick="toggleSetting('reserveAS')"><label for="reserveAS">Reserve Ancient Souls</label>
+                                    </br><input type="checkbox" id="reserveAS" class="checkbox" onclick="toggleSetting('reserveAS')"><label for="reserveAS">Reserve 远古之魂</label>
                                     <br><input type="checkbox" id="statsHZE" class="checkbox" onclick="toggleSetting('statsHZE')"><label for="statsHZE">Stats at HZE</label>
 								</div>
 								<button id="defaultButton" onclick="defaultClick()">Set to Default</button>
@@ -90,20 +90,20 @@
 				</div>
 				<div class="box-8" id="results" style="display:none">
 					<div class="panel">
-						<div class="title">Outsider Recommendations</div>
+						<div class="title">超越者推荐</div>
 						<div class="content">
 							<table id="OutsidersTable" cellspacing="0">
 								<thead><tr>
-									<th>Outsider</th>
-									<th>Level</th>
-									<th>Total Cost</th>
+									<th>超越者</th>
+									<th>等级</th>
+									<th>总花费</th>
 								</tr></thead>
 								<tbody>
 									
 								</tbody>
 							</table>
 							<div id="share"></div>
-							<div id="unspentAS">Unspent: 0</div>
+							<div id="unspentAS">未使用: 0</div>
 						</div>
 					</div>
 				</div>
@@ -112,7 +112,7 @@
 				<div class="box-4 boxes" id="estimates" style="display:none">
                     <div class="box-12">
                         <div class="panel">
-                            <div class="title">End of Transcension Estimates</div>
+                            <div class="title">预计超越的终点关卡</div>
                             <div class="content">
                                 <div id="predictedHZE"></div>
                                 <div id="predictedHS"></div>
@@ -130,7 +130,7 @@
                     </div>
                     <div class="box-12">
                         <div class="panel">
-                            <div class="title">Zone Breakpoints</div>
+                            <div class="title">层断点</div>
                             <div class="content">
                                 <div id="HighMpz"></div>
                                 <div id="5PBC"></div>
@@ -168,15 +168,15 @@
 				</div>
                 <div class="box-8" id="simulatorBox" style="display:none">
 					<div class="panel">
-						<div class="title">Transcension Simulator</div>
+						<div class="title">超越模拟器</div>
 						<div class="content">
                             <table id="transcensionTable" cellspacing="0">
 								<thead><tr>
-									<th>Ancient Souls</th>
-									<th>Borb</th>
-									<th>Highest Zone</th>
+									<th>远古之魂</th>
+									<th>波尔</th>
+									<th>最高关卡</th>
                                     <th>Final MpZ</th>
-                                    <th>Time</th>
+                                    <th>时间</th>
 								</tr></thead>
 								<tbody>
 								</tbody>
