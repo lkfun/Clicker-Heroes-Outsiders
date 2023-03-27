@@ -38,11 +38,11 @@
 			<div class="boxes">
 				<div class="box-12 collapsible">
 					<div class="panel">
-						<div class="title">Info</div>
+						<div class="title">信息</div>
 						<div class="content">
-							<p>Info/Feedback: <a href="https://redd.it/7on5it">https://redd.it/7on5it</a></p>
-							<p>End of transcension estimates are only accurate for active pushing, switch to Active or Hybrid ASAP if you are still playing Idle.</p>
-							<p>Check out the <a href="root2">Root2 Outsider Calculator</a></p>
+							<p>信息/反馈: <a href="https://redd.it/7on5it">https://redd.it/7on5it</a></p>
+							<p>预计超越的终点关卡仅适用于主动点击，如果您仍在玩挂机游戏，请尽快切换到主动点击或混合。</p>
+							<p>机翻者：<b>lkfun</b></p>
 						</div>
 					</div>
 				</div>
@@ -73,17 +73,17 @@
 							<button id="showSettings" onclick="showSettingsClick()">打开设置</button>
 							<div id="settings">
 								<div class="numberInput">
-                                    <input type="checkbox" id="autolevel" class="checkbox" onclick="toggleSetting('autolevel')"><label for="autolevel">Autolevel</label>
+                                    <input type="checkbox" id="autolevel" class="checkbox" onclick="toggleSetting('autolevel')"><label for="autolevel">自动等级</label>
                                     <br><input type="checkbox" id="dark" class="checkbox" onclick="changeTheme()" checked><label for="dark">暗色主题</label>
                                     <br><input type="checkbox" id="simulator" class="checkbox" onclick="toggleSetting('simulator')" checked><label for="simulator">超越模拟器</label>
-									<br><label for="zoneOverride">Zone override:</label>
+									<br><label for="zoneOverride">层数覆盖:</label>
 									<input id="zoneOverride" type="text" style="font-size:12px;">
                                     <br><input type="checkbox" id="helpText" class="checkbox" onclick="toggleSetting('helpText')" checked><label for="helpText">帮助文本</label>
                                     <br><input type="checkbox" id="levelOrphalas" class="checkbox" onclick="toggleSetting('levelOrphalas')"><label for="levelOrphalas">Level Orphalas</label>
-                                    </br><input type="checkbox" id="reserveAS" class="checkbox" onclick="toggleSetting('reserveAS')"><label for="reserveAS">Reserve 远古之魂</label>
-                                    <br><input type="checkbox" id="statsHZE" class="checkbox" onclick="toggleSetting('statsHZE')"><label for="statsHZE">Stats at HZE</label>
+                                    </br><input type="checkbox" id="reserveAS" class="checkbox" onclick="toggleSetting('reserveAS')"><label for="reserveAS">保留远古之魂</label>
+                                    <br><input type="checkbox" id="statsHZE" class="checkbox" onclick="toggleSetting('statsHZE')"><label for="statsHZE">有史以来最高的层的状态</label>
 								</div>
-								<button id="defaultButton" onclick="defaultClick()">Set to Default</button>
+								<button id="defaultButton" onclick="defaultClick()">恢复默认</button>
 							</div>
 						</div>
 					</div>
@@ -144,7 +144,7 @@
 				</div>
 				<div class="box-4" id="unbuffedHZE" style="display:none">
 					<div class="panel">
-						<div class="title">Unbuffed stats at HZE</div>
+						<div class="title">在有史以来最高关卡的状态（未增益）</div>
 						<div class="content">
 							<div id="unbuffedMPZ"></div>
 							<div id="unbuffedTCC"></div>
@@ -156,7 +156,7 @@
 				</div>
 				<div class="box-4" id="buffedHZE" style="display:none">
 					<div class="panel">
-						<div class="title">Buffed stats at HZE</div>
+						<div class="title">在有史以来最高关卡的状态（已增益）</div>
 						<div class="content">
 							<div id="buffedMPZ"></div>
 							<div id="buffedTCC"></div>
@@ -175,7 +175,7 @@
 									<th>远古之魂</th>
 									<th>波尔</th>
 									<th>最高关卡</th>
-                                    <th>Final MpZ</th>
+                                    <th>怪/层</th>
                                     <th>时间</th>
 								</tr></thead>
 								<tbody>

@@ -356,8 +356,8 @@ function refresh(test, ancientSouls, simulating) {
     // Display the results
     $("#TP").html("超越之力: " + tpDisplay(ancientSouls));
     //End of Transcension
-    $("#predictedHZE").html("最高关卡: " + this.newHze.toLocaleString() );
-    $("#predictedHS").html("logHS: " + newLogHeroSouls.toFixed(2).toLocaleString() );
+    $("#predictedHZE").html("有史以来最高的层: " + this.newHze.toLocaleString() );
+    $("#predictedHS").html("英魂的数量级: " + newLogHeroSouls.toFixed(2).toLocaleString() );
     $("#predictedAS").html("远古之魂: " + this.newAncientSouls.toLocaleString() + " (+" + this.ancientSoulsDiff.toLocaleString() + ")");
     $("#predictedTP").html("超越之力: " + tpDisplay(this.newAncientSouls));
     $("#predictedAncients").html("Ancient Levels: " + ancientLevels.toLocaleString() );
@@ -434,29 +434,29 @@ function refresh(test, ancientSouls, simulating) {
             infoMessage += "<li>你需要有远古之魂才能发挥作用。 在 300 层解锁超越后立即超越。这是值得的。</li>";
         } else {
             if(ancientSouls < 2000) {
-                infoMessage += "<li>你的第一次转生应该在 130 层，这样你就可以尽快解锁 熊若丸 和其他一些神器。 这会大大加快你的升级。</li>"
+                infoMessage += "<li>你的第一次转生应该在 130 层，这样你就可以尽快解锁 熊若丸 和其他一些神器。 这会大大加快你的转生。</li>"
                 if (borbHze < borbLevel && ancientSouls > 50) {
-                    infoMessage += "<li>Only " + borbHze + " Borb is needed to have 2 monsters per zone on your final ascension, but " + borbFantR
-                    + " is needed to have 2 monsters per zone after ascending for the first time at zone 130.</li>";
-                    infoMessage += "<li>There are more ascensions than the last one. Borb is leveled higher to speed up earlier ascensions.</li>"
+                    infoMessage += "<li>在你的最后一次转生中，每个层只需要 " + borbHze + " 波尔有2个怪物，但在130层首次转生后，每个层需要 " + borbFantR
+                    + " 波尔2个怪物。</li>";
+                    infoMessage += "<li>有比上一次更多的转生。波尔被调平得更高，以加快早期转生的速度。</li>"
                 }
             }
             if (ancientSouls < 10500) {
-                infoMessage += "<li>Transcend after 3 or 4 ascensions that give <b>new</b> Ancient Souls. The ascension needs to earn you more HS than your previous transcend to count.</li>";
-                infoMessage += "<li>The Highest Zone below is an estimate and assumes you play active, which you should do as soon as you have 2 autoclickers.</li>"
+                infoMessage += "<li>在获得<b>新</b>的远古之魂的3或4次转生之后超越。转生需要为你赢得比你之前超越更多的英魂才能计数。</li>";
+                infoMessage += "<li>下面的最高层是一个估计值，假设你玩得很活跃，只要你有两个自动点击，你就应该这么做。</li>"
             } else {
                 if (ancientSouls < 27000) {
-                    infoMessage += "<li>The guideline that states '3 or 4 ascensions that give AS' <b>does not apply beyond 24% Transcendent Power!</b></li>";
-                    infoMessage += "<li>Keep ascending until you reach at least the estimated Highest Zone shown below. This will take longer (more ascensions) than you are used to.</li>";
-                    infoMessage += "<li>You are getting close to 25% Transcendent Power, therefore transcending won't give you as much of a boost like it did before.</li>"
+                    infoMessage += "<li>注意“给予远古英魂的3或4次转生”的指南<b>不适用于超过24%的超越之力！</b></li>";
+                    infoMessage += "<li>继续转生，直到你至少到达下面显示的估计最高层。这将花费比你习惯的更长的时间（更多的转生）。</li>";
+                    infoMessage += "<li>你正在接近25%的超越之力，因此超越不会像以前那样给你带来太大的提升。</li>"
                 }
                 if (ancientSouls >= 21000) {
                     if (ancientSouls < 50000) {
-                        infoMessage += "<li>You have enough TP to reach any hero. You are limited only by your Borb level. You only transcend to put more levels into Borb.</li>";
-                        infoMessage += "<li>The last 4 Outsiders are impractical/impossible to maintain at high zones so they are kept at 0. <b>This is not a bug!</b></li>";
+                        infoMessage += "<li>你有足够的超越之力到达任何英雄。你只波尔等级的限制。你只会超越，给波尔更多的等级。</li>";
+                        infoMessage += "<li>最后 4 个超越者不切实际/不可能在高层维护，因此它们保持在 0。 <b>这不是bug!</b></li>";
                     }
                     if (this.newHze < 5.37e6 && buffedMPZ > 10) {
-                        infoMessage += "<li>You can do one less ascension than what the Highest Zone estimate requires if you want a more pleasant run. It will only be a bit less than optimal long term.</li>"
+                        infoMessage += "<li>如果您想要更愉快的跑步，您可以比最高层估计所需的转生少一次。从长远来看，它只会比最佳状态差一点。</li>"
                     }
                 }
             }

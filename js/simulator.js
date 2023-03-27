@@ -30,7 +30,7 @@ function updateTable(ancientSouls, borbLevel, newHze, buffedMPZ, newAncientSouls
 
 function getDuration(borbLevel, zone) {
     if (zone < 200000) return "";
-    if (zone >= 5.46e6) return Infinity;
+    if (zone >= 5.46e6) return "无限";
     let durationSeconds;
     if (zone < 1e6)
         durationSeconds = Math.floor(zone / 8050 * 3600);
@@ -68,6 +68,6 @@ function getDuration(borbLevel, zone) {
         let days = Math.floor(dl / 86400);
         dl -= days * 86400;
         hours = dl / 3600;
-        return (years > 0 ? years.toLocaleString() + "y " : "") + days + "d " + hours.toFixed(2) + "h";
+        return (years > 0 ? years.toLocaleString() + "年 " : "") + days + "天 " + hours.toFixed(2) + "小时 ";
     }
 }
